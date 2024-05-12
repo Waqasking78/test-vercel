@@ -11,8 +11,10 @@ app.get("/", function (req, res) {
   res.sendFile(join(__dirname, "index.html"));
 });
 
-io.on("connection", (socket) => {
-    console.log("User connected")
-})
+io.on('connection', (socket) => {
+  socket.on('chat message', (msg) => {
+    io.emit('chat message', msg);
+  });
+});
 
-server.listen(3000);
+server.listen(3001);
