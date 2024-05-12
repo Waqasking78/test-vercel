@@ -7,6 +7,7 @@ const Server = require("socket.io");
 
 const io = Server(server);
 
+app.use(express.static('public'));
 app.get("/", function (req, res) {
   res.sendFile(join(__dirname, "index.html"));
 });
@@ -16,5 +17,7 @@ io.on('connection', (socket) => {
     io.emit('chat message', msg);
   });
 });
+
+
 
 server.listen(3001);
