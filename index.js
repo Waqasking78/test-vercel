@@ -9,7 +9,7 @@ const io = Server(server);
 
 app.use(express.static('public'));
 app.get("/", function (req, res) {
-  res.sendFile(join(__dirname, "index.html"));
+  res.send("join(__dirname,)");
 });
 
 io.on('connection', (socket) => {
